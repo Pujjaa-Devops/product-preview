@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Preview Design</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        }
+
+        .product-preview {
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 320px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-preview:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            width: 100%;
+            max-height: 240px;
+            object-fit: cover;
+        }
+
+        .product-title {
+            margin: 15px 0;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-price {
+            color: #ff6f61;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 15px;
+        }
+
+        .details-button {
+            background: #6a11cb;
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        .details-button:hover {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+
+        .product-details {
+            margin: 20px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-preview">
+        <img src="winter-jacket.png" alt="Product Image" class="product-image">
+        <h2 class="product-title">Jacket</h2>
+        <p class="product-price">Rs.2000</p>
+        <button id="toggle-details" class="details-button">Show Details</button>
+        <div id="product-details" class="product-details hidden">
+            <p>Stay stylish and warm with this premium jacket. It features a sleek design and high-quality materials, making it a versatile addition to your wardrobe.</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('toggle-details').addEventListener('click', function() {
+            const details = document.getElementById('product-details');
+            if (details.classList.contains('hidden')) {
+                details.classList.remove('hidden');
+                this.textContent = 'Hide Details';
+            } else {
+                details.classList.add('hidden');
+                this.textContent = 'Show Details';
+            }
+        });
+    </script>
+</body>
+</html>
